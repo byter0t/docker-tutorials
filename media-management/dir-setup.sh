@@ -16,7 +16,5 @@ mkdir -p $HOME/docker/media-management/prowlarr # Indexer management
 mkdir -p $HOME/docker/media-management/huntarr # Media upgrade/search
 mkdir -p $HOME/docker/media-management/bazarr # Subtitle management
 
-# Create directories for Jellyfin add-ons
-mkdir -p $HOME/docker/media-management/wizarr # User sign up management
-mkdir -p $HOME/docker/media-management/jellystat # Jellyfin stats
-mkdir -p $HOME/docker/media-management/jellyseerr # Jellyfin requests
+# Move to newly created media management directory
+cd $HOME/docker/media-management
