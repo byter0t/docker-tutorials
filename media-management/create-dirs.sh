@@ -1,21 +1,21 @@
 #!/bin/bash
 
 # Create Gluetun directory and get .env template file
-mkdir -p $USER/docker/media-management/gluetun
+mkdir -p $HOME/docker/media-management/gluetun # VPN container
 #wget URL FOR ENV TEMPLATE HERE
 
 # Create directories for download clients
-mkdir -p $USER/docker/media-management/qbittorent
-mkdir -p $USER/docker/media-management/sabnzbd
+mkdir -p $HOME/docker/media-management/qbittorent # Torrent client
+mkdir -p $HOME/docker/media-management/sabnzbd # Usenet client
 
 # Create directories for media/download managers
-mkdir -p $USER/docker/media-management/sonarr
-mkdir -p $USER/docker/media-management/radarr
-mkdir -p $USER/docker/media-management/prowlarr
-mkdir -p $USER/docker/media-management/huntarr
-mkdir -p $USER/docker/media-management/bazarr
+mkdir -p $HOME/docker/media-management/sonarr # TV Show management
+mkdir -p $HOME/docker/media-management/radarr # Movie management
+mkdir -p $HOME/docker/media-management/prowlarr # Indexer management
+mkdir -p $HOME/docker/media-management/huntarr # Media upgrade/search
+mkdir -p $HOME/docker/media-management/bazarr # Subtitle management
 
 # Create directories for Jellyfin add-ons
-mkdir -p $USER/docker/media-management/wizarr
-mkdir -p $USER/docker/media-management/jellystat
-mkdir -p $USER/docker/media-management/jellyseerr
+mkdir -p $HOME/docker/media-management/wizarr # User sign up management
+mkdir -p $HOME/docker/media-management/jellystat # Jellyfin stats
+mkdir -p $HOME/docker/media-management/jellyseerr # Jellyfin requests
