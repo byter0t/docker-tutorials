@@ -1,8 +1,9 @@
 #!/bin/bash
 
-# Create Gluetun directory and get .env template file
+# Create Gluetun directory; get .env template file and docker-compose
 mkdir -p $HOME/docker/media-management/gluetun # VPN container
-#wget URL FOR ENV TEMPLATE HERE
+wget https://raw.githubusercontent.com/byter0t/docker-tutorials/refs/heads/main/media-management/.env
+wget https://raw.githubusercontent.com/byter0t/docker-tutorials/refs/heads/main/media-management/docker-compose.yml
 
 # Create directories for download clients
 mkdir -p $HOME/docker/media-management/qbittorent # Torrent client
