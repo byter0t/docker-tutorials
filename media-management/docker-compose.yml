@@ -36,7 +36,7 @@ services:
       - QBITTORRENT_PORT=8085
       - VPN_PORT_FORWARDING_UP_COMMAND=/bin/sh -c 'wget -O- --retry-connrefused --post-data "json={\"listen_port\":{{PORTS}}}" http://127.0.0.1:8085/api/v2/app/setPreferences 2>&1'
     volumes:
-      - ./media-management/gluetun:/gluetun
+      - ./gluetun:/gluetun
     restart: unless-stopped
 
   qbittorrent:
@@ -49,7 +49,7 @@ services:
       - TZ=${TZ}
       - WEBUI_PORT=8085
     volumes:
-      - ./media-management/qbittorrent:/config
+      - ./qbittorrent:/config
       - ${MEDIA_DIR}/Downloads/complete:/downloads
     depends_on:
       - gluetun
@@ -64,7 +64,7 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
     volumes:
-      - ./media-management/sabnzbd/config:/config
+      - ./sabnzbd/config:/config
       - ${MEDIA_DIR}/Downloads/incomplete:/incomplete #optional
       - ${MEDIA_DIR}/Downloads/complete:/downloads #optional
     depends_on:
@@ -80,7 +80,7 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
     volumes:
-      - ./media-management/sonarr/data:/config
+      - ./sonarr/data:/config
       - "${MEDIA_DIR}/Library/TV Shows:/tv"
       - ${MEDIA_DIR}/Library/Anime:/anime
       - ${MEDIA_DIR}/Downloads/incomplete:/incomplete
@@ -98,7 +98,7 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
     volumes:
-      - ./media-management/radarr/data:/config
+      - ./radarr/data:/config
       - ${MEDIA_DIR}/Library/Movies:/movies
       - ${MEDIA_DIR}/Library/Anime:/anime
       - ${MEDIA_DIR}/Downloads/incomplete:/incomplete
@@ -116,7 +116,7 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
     volumes:
-      - ./media-management/prowlarr/data:/config
+      - ./prowlarr/data:/config
     depends_on:
       - gluetun
     restart: unless-stopped
@@ -130,8 +130,8 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
     volumes:
-      - ./media-management/bazarr/config:/config
-      - ./media-management/bazarr/data:/data
+      - ./bazarr/config:/config
+      - ./bazarr/data:/data
       - ${MEDIA_DIR}/Library/Movies:/movies
       - "${MEDIA_DIR}/Library/TV Shows:/tv"
       - ${MEDIA_DIR}/Library/Anime:/anime
@@ -144,5 +144,5 @@ services:
     environment:
       - TZ=${TZ}
     volumes:
-      - ./media-management/huntarr:/config
+      - ./huntarr:/config
     restart: unless-stopped
